@@ -1,0 +1,139 @@
+{% extends "easy_pdf/base.html" %}
+{% block extra_style %}
+  <style type="text/css">
+    .menbrete{
+      text-align: center;
+      border: 1px solid grey;
+      font-size: 35px;
+      font-family: cursive;
+    }
+    .initabla{
+      background: lightgrey;
+      text-align: center;
+    }
+    .initabla2{
+      background: grey;
+      text-align: center;
+    }
+    .noleft{
+      text-align: right;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+  <div id="content">
+    <h6 class='noleft'>{{fecha}}</h6>
+    <div class='menbrete'><br>Membrete de la Empresa</div>
+    <table>
+      <tr>
+        <td colspan='2' class='initabla2'>Orden De Revisión:</td>
+      </tr>
+      <tr>
+        <td class='initabla'>Datos Del Cliente</td>
+        <td class='initabla'>Datos Del Equipo</td>
+      </tr>
+      <tr>
+        <td>Nombre: <b>{{requests.cliente.nombre}} {{requests.cliente.apellido}}</b></td>
+        <td>Tipo
+          <b>
+            {% if requests.tipo == "1" %}
+              Computador
+            {% else %}
+              Telefono
+            {% endif %}
+          </b>
+        </td>
+      </tr>
+      <tr>
+        <td>Cedula: <b>{{requests.cliente.cedula}}</b></td>
+        <td>Marca: <b>{{equipo.marca}}</b></td>
+      </tr>
+      <tr>
+        <td>Sexo: 
+          {% if requests.cliente.sexo == "1" %}
+            <b>Masculino</b>
+          {% else %}
+            <b>Femenino</b>
+          {% endif %}
+        </td>
+        <td>Modelo: <b>{{equipo.modelo}}</b></td>
+      </tr>
+      <tr>
+        <td class='initabla2' colspan='2'>Detalles De orden De Revisión:</td>
+      </tr>
+      <tr>
+        <td class='initabla'>Descripcion</td>
+        <td class='initabla'>Observaciones</td>
+      </tr>
+      <tr>
+        <td rowspan='3'><b>{{requests.descripcion}}</b></td>
+        <td ><b>{{requests.observaciones}}</b></td>
+      </tr>
+      <tr>
+        <td class='initabla'>Fecha De Recibo: </td>
+      </tr>
+      <tr>
+        <td><b>{{requests.fecha_de_recibido}}</b></td>
+      </tr>
+      <tr><td colspan='2'>Copia - Cliente</td></tr>
+    </table>
+
+    <hr>
+
+    <h6 class='noleft'>{{fecha}}</h6>
+    <div class='menbrete'><br>Membrete de la Empresa</div>
+    <table>
+      <tr>
+        <td colspan='2' class='initabla2'>Orden De Revisión:</td>
+      </tr>
+      <tr>
+        <td class='initabla'>Datos Del Cliente</td>
+        <td class='initabla'>Datos Del Equipo</td>
+      </tr>
+      <tr>
+        <td>Nombre: <b>{{requests.cliente.nombre}} {{requests.cliente.apellido}}</b></td>
+        <td>Tipo
+          <b>
+            {% if requests.tipo == "1" %}
+              Computador
+            {% else %}
+              Telefono
+            {% endif %}
+          </b>
+        </td>
+      </tr>
+      <tr>
+        <td>Cedula: <b>{{requests.cliente.cedula}}</b></td>
+        <td>Marca: <b>{{equipo.marca}}</b></td>
+      </tr>
+      <tr>
+        <td>Sexo: 
+          {% if requests.cliente.sexo == "1" %}
+            <b>Masculino</b>
+          {% else %}
+            <b>Femenino</b>
+          {% endif %}
+        </td>
+        <td>Modelo: <b>{{equipo.modelo}}</b></td>
+      </tr>
+      <tr>
+        <td class='initabla2' colspan='2'>Detalles De orden De Revisión:</td>
+      </tr>
+      <tr>
+        <td class='initabla'>Descripcion</td>
+        <td class='initabla'>Observaciones</td>
+      </tr>
+      <tr>
+        <td rowspan='3'><b>{{requests.descripcion}}</b></td>
+        <td ><b>{{requests.observaciones}}</b></td>
+      </tr>
+      <tr>
+        <td class='initabla'>Fecha De Recibo: </td>
+      </tr>
+      <tr>
+        <td><b>{{requests.fecha_de_recibido}}</b></td>
+      </tr>
+      <tr><td colspan='2'>Copia-Equipo</td></tr>
+    </table>
+  </div>
+{% endblock %}

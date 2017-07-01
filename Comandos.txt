@@ -1,0 +1,52 @@
+Requerimientos:
+$ pip install django-easy-pdf
+$ pip install "xhtml2pdf>=0.0.6" "reportlab>=2.7,<3"
+
+
+
+syncdb
+makemigrations
+migrate
+
+</////>
+SSH- KEY
+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8c8nnjsOp6hfsojo0BWD/8dCkGJj0zIM7SgBDzYf5Yf0UzzURdVHHo8IbmpPKW1+T7SPujK1Qv2YqDsHVytOZ3LzvsyePBY4tFN56mCwR0jaIj1Vl6UcDgdb4ITbohVr2+2pD3/niBVsLccnjo6F8pgt3U/xM16V11E7I+URS+BNXZBfef8YOoJdS5zqRsBf3oWdQcgtd11yRP5Mz0cJNBepsu5SxcUt+1qMT8BdebMQBiES/b2PBSpW3g1tX1UhZ4G/QuzvpbOfrawlN5o13U0IPSa8Y4i8CZbWmqVnvL+ietKziNhCSM/cEOgJDhit26Rl1TwSygAYUVDniOst root@MS-Red-Server-Https
+
+
+
+////>>
+
+
+Create a new repository
+
+git clone git@gitlab.com:leopoldodibiro/SRO.git
+git clone https://gitlab.com/leopoldodibiro/SRO.git
+
+cd SRO
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Existing folder or Git repository
+
+cd existing_folder
+git init
+git remote add origin git@gitlab.com:leopoldodibiro/SRO.git
+git add .
+git commit -a -m
+git pull 'bajar cambios'
+git push -u origin master
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'DBNAME',                      # Or path to database file if using sqlite3.
+        'USER': 'USER',                      # Not used with sqlite3.
+        'PASSWORD': 'PASSWORD',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}

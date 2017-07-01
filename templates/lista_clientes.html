@@ -1,0 +1,87 @@
+<div class="col-sm-12">
+	<span style="position: absolute; right: 0;"><i class="add_user btn btn-info fa fa-plus"></i></span>
+	<br>
+	<br>
+	<table id="lista_clientes"  class="table table-cover">
+		<thead>
+			<tr>
+				<th>
+					Editar
+				</th>
+				<th>
+					Cedula
+				</th>
+				<th>
+					Nombre
+				</th>
+				<th>
+					Apellido
+				</th>
+				<th>
+					Sexo
+				</th>
+				<th>
+					Fecha De Nacimiento
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for x in clientes %}
+			<tr>
+				<td><div><a href="#" class='editar_cliente' data-id='{{x.id}}' data-toggle="modal" data-target="#udate_cliente" onclick="get_cliente({{x.id}})"><i class='fa fa-pencil-square-o fa_color'></i></a></div>
+				</td>
+				<td>
+					{{x.cedula}}
+				</td>
+				<td>
+					{{x.nombre}}
+				</td>
+				<td>
+					{{x.apellido}}
+				</td>
+				<td>
+					{% if x.sexo == '1' %}
+					<i class="fa fa-mars info" style="color:blue"></i>
+					{% else %}
+					<i class="fa fa-venus" style="color:red"></i>
+					{% endif %}
+				</td>
+				<td>
+					{{x.fecha_de_nacimiento}}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	$(".add_user").click(function(event) {
+	  $("#crear_cliente").modal("show");
+	});
+	  
+	var table_participantes = $('#lista_clientes').dataTable({
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
+        language: {
+	        processing:     "Cargando",
+	        search:         "Busqueda:",
+	        lengthMenu:    "Montrar _MENU_ Registros",
+	        info:           "Registros del _START_ Hasta el: _END_ De _TOTAL_ Registro",
+	        infoEmpty:      "Registros del 0 Hasta el: 0 De 0 Registro",
+	        infoFiltered:   "(filtrado de _MAX_ total)",
+	        infoPostFix:    "",
+	        loadingRecords: "Espere",
+	        zeroRecords:    "No Existe Ningun Cliente Registrado",
+	        emptyTable:     "No Existe Ningun Cliente Registrado",
+	        paginate: {
+	            first:      "Primero",
+	            previous:   "Anterior",
+	            next:       "Siguiente",
+	            last:       "Ultimo"
+	        },
+	        aria: {
+	            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+	            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+	        }
+	    }
+    }).draw();
+</script>

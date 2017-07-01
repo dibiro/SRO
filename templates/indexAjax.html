@@ -1,0 +1,71 @@
+<div class='col-sm-8 col-sm-offset-2'>
+    <h1 class="page-header titulo">Agregar Nueva Peticion.</h1>
+    <form class="form-horizontal" id="agregar_peticion" action="javascript:save_peticion()">
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"  for="cliente">Cliente</label>
+            <div class="col-sm-7">
+                <select name="cliente" id='cliente' class="form-control" required>
+                <option></option>
+                    {% for x in clientes %}
+                        <option value="{{x.id}}">{{x.cedula}} - {{x.nombre}} {{x.apellido}}</option>
+                    {% endfor %}
+                <option value=""></option>
+                </select>
+            </div>
+            <i class="fa fa-plus btn btn-info col-sm-1 add_user"></i>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"  for="tipo">Tipo</label>
+            <div class="col-sm-7">
+                <select class="form-control" name="tipo" id='tipo' disabled required>
+                    <option></option>    
+                    <option value="1">Pc</option>
+                    <option value="2">Telefono</option>    
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"  for="equipo">Equipo</label>
+            <div class="col-sm-7">
+                <select class="form-control" name="equipo" id='equipo' required disabled>
+                    <option></option>    
+                </select>
+            </div>
+            <i class="fa fa-plus btn btn-info col-sm-1 disabled" id='add_equipos' data-id=''></i>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label "  for="fecha_de_recibido">Fecha De Recibo</label>
+            <span class='col-sm-1' id='divlol'></span>
+            <div class="input-group date div-margin-jr" id="btn_fecha_uno">
+                <input type="text" name="fecha_de_recibido" id="fecha_de_recibido" required class="datetimepicker form-control " data-fv-field="init_date">
+                <span class="input-group-addon">
+                    <span><i class="fa fa-calendar"></i></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+          	<label class="col-sm-3 control-label"  for="Descripcion">Descripcion</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" name="Descripcion" id='Descripcion' style=' border-radius:7px 7px 7px 7px;' required></textarea>    
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"  for="Observaciones">Observaciones</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" name="Observaciones" id='Observaciones' style=' border-radius:7px 7px 7px 7px;' required></textarea>    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              <button type="submit" class="btn btn-danger">Registrar</button>
+            </div>
+        </div>
+
+    </form>
+</div>

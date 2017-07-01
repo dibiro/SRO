@@ -1,0 +1,108 @@
+<div class="col-sm-12">
+	<br>
+	<br>
+	<table id="lista_telefon"  class="table table-cover">
+		<thead>
+			<tr>
+				<th>
+					Tipo
+				</th>
+				<th>
+					Cliente
+				</th>
+				<th>
+					Quien Retira
+				</th>
+				<th>
+					Equipo
+				</th>
+				<th>
+					Falla
+				</th>
+				<th>
+					Diagnostico
+				</th>
+				<th>
+					Fecha De Revision
+				</th>
+				<th>
+					Fecha De Entrega
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for x in ordenes %}
+			<tr>
+				<td>
+					{% if x.orden.orden.tipo == '1' %}
+					<i class="fa fa-laptop"></i>
+					{% else %}
+					<i class="fa fa-phone"></i>
+					{% endif %}
+				</td>
+				<td>
+					({{x.orden.orden.cliente.cedula}}) - {{x.orden.orden.cliente.nombre}} {{x.orden.orden.cliente.apellido}}
+				</td>
+				<td>
+					({{x.cliente.cedula}}) - {{x.cliente.nombre}} {{x.cliente.apellido}}
+				</td>
+				<td>
+					{% if x.orden.orden.tipo == '1' %}
+						{% for y in pcs %}
+							{% if y.id == x.orden.orden.object_id %}
+								{{y.marca}} {{y.modelo}}
+							{% endif %}
+						{% endfor %}
+					{% else %}
+						{% for y in cell %}
+							{% if y.id == x.orden.orden.object_id %}
+								{{y.marca}} {{y.modelo}}
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+				</td>
+				<td>
+					{{x.orden.orden.descripcion}}
+				</td>
+				<td>
+					{{x.orden.diagnostico}}
+				</td>
+				<td>
+					{{x.orden.fecha_de_culminacion}}
+				</td>
+				<td>
+					{{x.fecha_de_entrega}}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	add_event_telefonos();
+	var table_telefono = $('#lista_telefon').dataTable({
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
+        language: {
+	        processing:     "Cargando",
+	        search:         "Busqueda:",
+	        lengthMenu:    "Montrar _MENU_ Registros",
+	        info:           "Registros del _START_ Hasta el: _END_ De _TOTAL_ Registro",
+	        infoEmpty:      "Registros del 0 Hasta el: 0 De 0 Registro",
+	        infoFiltered:   "(filtrado de _MAX_ total)",
+	        infoPostFix:    "",
+	        loadingRecords: "Espere",
+	        zeroRecords:    "No Existe Ningun Telefono Registrado",
+	        emptyTable:     "No Existe Ningun Telefono Registrado",
+	        paginate: {
+	            first:      "Primero",
+	            previous:   "Anterior",
+	            next:       "Siguiente",
+	            last:       "Ultimo"
+	        },
+	        aria: {
+	            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+	            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+	        }
+	    }
+    }).draw();
+</script>

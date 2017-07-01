@@ -1,0 +1,72 @@
+<div class="col-sm-12">
+	<br>
+	<br>
+	<table id="lista_clientes"  class="table table-cover">
+		<thead>
+			<tr>
+				<th>
+				</th>
+				<th>
+				</th>
+				<th>
+					Usuario
+				</th>
+				<th>
+					Descripcion
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for x in clientes %}
+			<tr>
+				<td>
+					{{x.get_action}}
+				</td>
+				<td>
+					{{x.get_type}}
+				</td>
+				<td>
+					{{x.user.first_name}} {{x.user.last_name}}
+				</td>
+				<td>
+					{{x.descripcion}}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+	$(".add_user").click(function(event) {
+	  $("#crear_cliente").modal("show");
+	});
+	  
+	var table_participantes = $('#lista_clientes').dataTable({
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
+        language: {
+	        processing:     "Cargando",
+	        search:         "Busqueda:",
+	        lengthMenu:    "Montrar _MENU_ Registros",
+	        info:           "Registros del _START_ Hasta el: _END_ De _TOTAL_ Registro",
+	        infoEmpty:      "Registros del 0 Hasta el: 0 De 0 Registro",
+	        infoFiltered:   "(filtrado de _MAX_ total)",
+	        infoPostFix:    "",
+	        loadingRecords: "Espere",
+	        zeroRecords:    "No Existe Ningun Cliente Registrado",
+	        emptyTable:     "No Existe Ningun Cliente Registrado",
+	        paginate: {
+	            first:      "Primero",
+	            previous:   "Anterior",
+	            next:       "Siguiente",
+	            last:       "Ultimo"
+	        },
+	        aria: {
+	            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+	            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+	        }
+	    }
+    }).draw();
+</script>

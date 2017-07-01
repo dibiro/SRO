@@ -1,0 +1,67 @@
+<div class="modal fade" id="crear_pc">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-plus"></i> Pc</h4>
+      </div>
+      <form id="crear_pcf" class="form-horizontal row-border" action="javascript:save_pc()">
+        <div style="" class="modal-body">
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="Marca_pc">Marca</label>
+                <input type="text" class="form-control" id="Marca_pc" name="Marca_pc" placeholder="Marca">
+              </div>
+              <div class="form-group">
+                <label for="Modelo_pc">Modelo</label>
+                <input type="text" class="form-control" id="Modelo_pc" name="Modelo_pc" placeholder="Modelo">
+              </div>
+              <div class="form-group">
+                <label for="HHD_pc">HHD</label>
+                <input type="text" class="form-control" id="HHD_pc" name="HHD_pc" placeholder="HHD">
+              </div>
+              <div class="form-group">
+                <label for="tarjeta_madre_pc">Tarjeta Madre</label>
+                <input type="text" class="form-control" id="tarjeta_madre_pc" name="tarjeta_madre_pc" placeholder="Tarjeta Madre">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="CPU_pc">CPU</label>
+                <input type="text" class="form-control" id="CPU_pc" name="CPU_pc" placeholder="CPU">
+              </div>
+              <div class="form-group">
+                <label for="RAM_pc">RAM</label>
+                <input type="text" class="form-control" id="RAM_pc" name="RAM_pc" placeholder="RAM">
+              </div>
+              <div class="form-group">
+                <label for="Unidad_de_DVD_pc">Unidad de DVD</label>
+                <input type="text" class="form-control" id="Unidad_de_DVD_pc" name="Unidad_de_DVD_pc" placeholder="Unidad de DVD">
+              </div>
+              <div class="form-group">
+                <label for="Fuente_de_poder_pc">Fuente de poder</label>
+                <input type="text" class="form-control" id="Fuente_de_poder_pc" name="Fuente_de_poder_pc" placeholder="Fuente de poder">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="observaciones_pc">Observaciones</label>
+                <textarea type="text" rows="3" class="form-control" id="observaciones_pc" name="observaciones_pc" placeholder="Observaciones"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="clearfix"></div>
+        <div style="" class="modal-footer">
+          <div class="row">
+            <div class="col-sm-5 pull-right">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-info">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

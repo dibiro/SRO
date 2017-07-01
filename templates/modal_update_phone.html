@@ -1,0 +1,69 @@
+<div class="modal fade" id="update_phone">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-pencil-square-o"></i> Telefonos</h4>
+      </div>
+      <form id="update_phonef" class="form-horizontal row-border" action="javascript:update_phone()">
+        <div style="padding-bottom:0;padding-top:0" class="modal-body">
+        <input type="hidden" id="id_telefono">
+          <div class="col-sm-12">
+              <div class="form-group">
+                  <label class="col-sm-3 control-label"  for="cliente_up">Cliente</label>
+                  <div class="col-sm-7">
+                      <select name="cliente_up" id='cliente_up' class="form-control" required>
+                      <option></option>
+                          {% for x in clientes %}
+                              <option value="{{x.id}}">{{x.cedula}} - {{x.nombre}} {{x.apellido}}</option>
+                          {% endfor %}
+                      <option value=""></option>
+                      </select>
+                  </div>
+                  <i class="fa fa-plus btn btn-info col-sm-1 add_user"></i>
+              </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="Marca_up">Marca</label>
+                <input type="text" class="form-control" id="Marca_up" name="Marca_up" placeholder="Marca">
+              </div>
+              <div class="form-group">
+                <label for="Modelo_up">Modelo</label>
+                <input type="text" class="form-control" id="Modelo_up" name="Modelo_up" placeholder="Modelo">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="Serial_up">Serial</label>
+                <input type="text" class="form-control" id="Serial_up" name="Serial_up" placeholder="Serial">
+              </div>
+              <div class="form-group">
+                <label for="IMEI_up">IMEI</label>
+                <input type="text" class="form-control" id="IMEI_up" name="IMEI_up" placeholder="IMEI">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="Bateria_up">Bateria</label>
+                <input type="text" class="form-control" id="Bateria_up" name="Bateria_up" placeholder="Bateria">
+              </div>
+              <div class="form-group">
+                <label for="observaciones_up">Observaciones</label>
+                <textarea type="text" rows="3" class="form-control" id="observaciones_up" name="observaciones_up" placeholder="Observaciones"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="clearfix"></div>
+        <div style="margin-top:0" class="modal-footer">
+          <div class="row">
+            <div class="col-sm-5 pull-right">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-info">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand titulo"><i class="fa fa-angellist"></i><span class='hidden-xs'> SRO</span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret"></i> <span id='nombre_del_usuario' >{{request.user.first_name}} {{request.user.last_name}} </span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="self_update_user" href="#MUpdateUser" data-id='{{request.user.id}}' data-username='{{request.user.username}}' data-email='{{request.user.email}}' data-firstname='{{request.user.first_name}}' data-lastname='{{request.user.last_name}}' data-toggle="modal"><i class="fa fa-user"></i> Mi Cuenta</a></li>
+              <li><a id="self_change_password" href="#MChangePassword" data-id='{{request.user.id}}' data-toggle="modal"><i class="fa fa-key"></i> Cambio de Contraceña</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a onclick="salir()"><i class="fa fa-power-off"></i> Salir</a></li>
+            </ul>
+          </li>
+          <li>
+            <a></a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>

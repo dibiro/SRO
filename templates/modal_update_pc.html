@@ -1,0 +1,81 @@
+<div class="modal fade" id="update_pc">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-pencil-square-o"></i> Pc</h4>
+      </div>
+      <form id="update_pcf" class="form-horizontal row-border" action="javascript:update_pc()">
+      <input type="hidden" id="id_pc">
+        <div style="" class="modal-body">
+          <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-3 control-label"  for="cliente">Cliente</label>
+                  <div class="col-sm-7">
+                      <select name="cliente_up" id='cliente_up' class="form-control" required>
+                      <option></option>
+                          {% for x in clientes %}
+                              <option value="{{x.id}}">{{x.cedula}} - {{x.nombre}} {{x.apellido}}</option>
+                          {% endfor %}
+                      <option value=""></option>
+                      </select>
+                  </div>
+                  <i class="fa fa-plus btn btn-info col-sm-1 add_user"></i>
+              </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="Marca_pc_up">Marca</label>
+                <input type="text" class="form-control" id="Marca_pc_up" name="Marca_pc_up" placeholder="Marca">
+              </div>
+              <div class="form-group">
+                <label for="Modelo_pc_up">Modelo</label>
+                <input type="text" class="form-control" id="Modelo_pc_up" name="Modelo_pc_up" placeholder="Modelo">
+              </div>
+              <div class="form-group">
+                <label for="HHD_pc_up">HHD</label>
+                <input type="text" class="form-control" id="HHD_pc_up" name="HHD_pc_up" placeholder="HHD">
+              </div>
+              <div class="form-group">
+                <label for="tarjeta_madre_pc_up">Tarjeta Madre</label>
+                <input type="text" class="form-control" id="tarjeta_madre_pc_up" name="tarjeta_madre_pc_up" placeholder="Tarjeta Madre">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="CPU_pc_up">CPU</label>
+                <input type="text" class="form-control" id="CPU_pc_up" name="CPU_pc_up" placeholder="CPU">
+              </div>
+              <div class="form-group">
+                <label for="RAM_pc_up">RAM</label>
+                <input type="text" class="form-control" id="RAM_pc_up" name="RAM_pc_up" placeholder="RAM">
+              </div>
+              <div class="form-group">
+                <label for="Unidad_de_DVD_pc_up">Unidad de DVD</label>
+                <input type="text" class="form-control" id="Unidad_de_DVD_pc_up" name="Unidad_de_DVD_pc_up" placeholder="Unidad de DVD">
+              </div>
+              <div class="form-group">
+                <label for="Fuente_de_poder_pc_up">Fuente de poder</label>
+                <input type="text" class="form-control" id="Fuente_de_poder_pc_up" name="Fuente_de_poder_pc_up" placeholder="Fuente de poder">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="observaciones_pc">Observaciones</label>
+                <textarea type="text" rows="3" class="form-control" id="observaciones_pc_up" name="observaciones_pc_up" placeholder="Observaciones"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="clearfix"></div>
+        <div style="" class="modal-footer">
+          <div class="row">
+            <div class="col-sm-5 pull-right">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-info">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

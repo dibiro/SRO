@@ -1,0 +1,77 @@
+<div class="col-sm-12">
+	<span style="position: absolute; right: 0;"><i class="fa fa-plus btn btn-info" id='add_equipos_dos' data-id='2'></i></i></span>
+	<br>
+	<br>
+	<table id="lista_telefon"  class="table table-cover">
+		<thead>
+			<tr>
+				<th>Editar</th>
+				<th>
+					Cliente
+				</th>
+				<th>
+					Marca
+				</th>
+				<th>
+					Modelo
+				</th>
+				<th>
+					Serial
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for x in telefonos %}
+			<tr>
+				<td><div><a href="#" class='editar_telefono' data-id='{{x.id}}' data-toggle="modal" data-target="#update_phone" onclick="get_telefono({{x.id}})"><i class='fa fa-pencil-square-o fa_color'></i></a></div>
+				</td>
+				<td>
+					({{x.cliente.cedula}}) {{x.cliente.nombre}} {{x.cliente.apellido}}
+				</td>
+				<td>
+					{{x.marca}}
+				</td>
+				<td>
+					{{x.modelo}}
+				</td>
+				<td>
+					{{x.serial}}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% include 'modal_update_phone.html' %}
+{% include 'modal_phone_create_dos.html' %}
+<script type="text/javascript">
+	$(".add_user").click(function(event) {
+	  $("#crear_cliente").modal("show");
+	});
+	add_event_telefonos();
+	var table_telefono = $('#lista_telefon').dataTable({
+        lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
+        language: {
+	        processing:     "Cargando",
+	        search:         "Busqueda:",
+	        lengthMenu:    "Montrar _MENU_ Registros",
+	        info:           "Registros del _START_ Hasta el: _END_ De _TOTAL_ Registro",
+	        infoEmpty:      "Registros del 0 Hasta el: 0 De 0 Registro",
+	        infoFiltered:   "(filtrado de _MAX_ total)",
+	        infoPostFix:    "",
+	        loadingRecords: "Espere",
+	        zeroRecords:    "No Existe Ningun Telefono Registrado",
+	        emptyTable:     "No Existe Ningun Telefono Registrado",
+	        paginate: {
+	            first:      "Primero",
+	            previous:   "Anterior",
+	            next:       "Siguiente",
+	            last:       "Ultimo"
+	        },
+	        aria: {
+	            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+	            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+	        }
+	    }
+    }).draw();
+</script>

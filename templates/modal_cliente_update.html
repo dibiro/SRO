@@ -1,0 +1,70 @@
+<div class="modal fade" id="udate_cliente">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title"><i class="fa fa-pencil-square-o"></i> Cliente</h4>
+      </div>
+      <form id="udate_clientef" class="form-horizontal row-border" action="javascript:update_cliente()">
+      {% csrf_token %}
+      <input type="hidden" id="id_cliente">
+        <div style="padding-bottom:0;padding-top:0" class="modal-body">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="nombre_update">Nombre</label>
+              <input type="text" class="form-control" id="nombre_update" name="nombre_update" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido_update">Apellido</label>
+              <input type="text" name="apellido_update" class="form-control" id="apellido_update" placeholder="Apellido" required>
+            </div>
+            <div class="form-group">
+              <label for="cedula_update">Cedula</label>
+              <input type="text" class="form-control" id="cedula_update" name="cedula_update" placeholder="Cedula" required>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12">Sexo</label>
+              <div class="col-sm-12">
+                  <div class="input-icon2">
+                      <select name="sexo_update" id='sexo_update' class="mi_select form-control">
+                          <option value=""></option>
+                          <option value="1">Masculino</option>
+                          <option value="2">Femenino</option>
+                      </select>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="fecha_de_nacimiento_update">Fecha de nacimiento</label>
+                <div class="input-group date" id="btn_fecha_uno">
+                    <input type="text" name="fecha_de_nacimiento_update" id="fecha_de_nacimiento_update" required="required" class="datetimepicker form-control" data-fv-field="init_date">
+                    <span class="input-group-addon">
+                        <span><i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+                </div>
+          </div>
+          <div class="col-sm-6" id='telefonoydirecciones_update'>
+            <div class="form-group" id="clienes_telefono_update">
+              <label for="telefono">Telefono</label><span style="position: absolute; right: 0;" id="add_phone_update"><i class="btn btn-info fa fa-plus"></i></span>
+            </div>
+            <div class="form-group" id="clienes_direccion_update">
+              <label for="direccion">Direccion</label><span style="position: absolute; right: 0;" id="add_address_update" ><i class="fa fa-plus btn btn-info"></i></span>
+            </div>
+          </div>
+          
+          <div class="clearfix"></div>
+        </div>
+        <div style="margin-top:0" class="modal-footer">
+          <div class="row">
+            <div class="col-sm-5 pull-right">
+              <button type="reset" class="btn btn-danger" data-dismiss="modal" id="reset_clientes_update">Cancelar</button>
+              <button type="submit" class="btn btn-info">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
